@@ -10,6 +10,8 @@ use solderparty_rp2040_stamp_carrier::prelude::*;
 
 #[entry]
 fn main() -> ! {
+    // TODO: remove this once the HAL includes this
+    unsafe { bsp::spinlock_reset(); }
     info!("Program start");
     let mut board = bsp::Board::take().unwrap();
     let pins = board.pins;
