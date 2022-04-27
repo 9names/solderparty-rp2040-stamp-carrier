@@ -15,9 +15,6 @@ fn main() -> ! {
     let pins = board.pins;
     let mut led = pins.led.into_push_pull_output();
 
-    let mut delay =
-        cortex_m::delay::Delay::new(board.SYST, board.clocks.system_clock.freq().integer());
-
     // Configure GPIO26 as an ADC input
     let mut adc_pin_0 = pins.a0.into_floating_input();
     // Configure GPIO27 as an ADC input
@@ -38,6 +35,9 @@ fn main() -> ! {
         board.timer.count_down(),
     );
 
+    // Configure the Timer peripheral in count-down modeMER, &mut board.RESETS);
+    let mut count_down = board.timer.count_down();
+
     // Infinite colour wheel loop
     let mut n: u8 = 128;
     loop {
@@ -54,8 +54,11 @@ fn main() -> ! {
         ws.write(smart_leds::brightness(once(wheel(n)), 32))
             .unwrap();
         n = n.wrapping_add(1);
-        delay.delay_ms(25);
         let _ = led.toggle();
+
+        // Sleep for 25ms
+        count_down.start(25.milliseconds());
+        let _ = nb::block!(count_down.wait());
     }
 }
 
