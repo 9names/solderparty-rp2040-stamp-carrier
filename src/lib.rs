@@ -4,8 +4,6 @@ pub use rp2040_hal as hal;
 
 #[cfg(feature = "rt")]
 extern crate cortex_m_rt;
-#[cfg(feature = "rt")]
-pub use cortex_m_rt::entry;
 
 /// The linker will place this boot block at the start of our program image. We
 /// need this to help the ROM bootloader get our code up and running.
@@ -57,7 +55,6 @@ pub mod prelude {
     pub use crate::BOOT2_FIRMWARE as _;
     pub use crate::XOSC_CRYSTAL_FREQ;
     pub use core::iter::once;
-    pub use cortex_m_rt::entry;
     pub use embedded_hal::adc::OneShot;
     pub use embedded_hal::digital::v2::ToggleableOutputPin;
     pub use embedded_hal::timer::CountDown;
@@ -243,20 +240,5 @@ impl Board {
             adc,
             timer,
         }
-    }
-}
-
-// TODO: Remove once HAL includes this.
-/// Reset spinlocks on startup.
-///
-/// # Safety
-/// Call this before anything else in fn main(). Never call it again.
-pub unsafe fn spinlock_reset() {
-    // Using raw pointers to avoid taking peripherals accidently at startup
-    const SIO_BASE: u32 = 0xd0000000;
-    const SPINLOCK0_PTR: *mut u32 = (SIO_BASE + 0x100) as *mut u32;
-    const SPINLOCK_COUNT: usize = 32;
-    for i in 0..SPINLOCK_COUNT {
-        SPINLOCK0_PTR.wrapping_add(i).write_volatile(1);
     }
 }
