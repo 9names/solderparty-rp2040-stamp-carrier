@@ -1,6 +1,6 @@
 [package]
 name = "solderparty-rp2040-stamp-carrier"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["9names", "The rp-rs Developers"]
 edition = "2021"
 homepage = "https://github.com/rp-rs/rp-hal/tree/main/boards/solderparty-rp2040-stamp-carrier"
