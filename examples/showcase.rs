@@ -1,5 +1,5 @@
 //! Showcase some of the functionality of the Solder Party RP2040 Stamp Carrier
-//!
+
 #![no_std]
 #![no_main]
 
@@ -58,7 +58,7 @@ fn main() -> ! {
         let _ = led.toggle();
 
         // Sleep for 25ms
-        count_down.start(25.milliseconds());
+        count_down.start(25.millis());
         let _ = nb::block!(count_down.wait());
     }
 }
