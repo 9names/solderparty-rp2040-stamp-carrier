@@ -13,12 +13,9 @@ repository = "https://github.com/9names/solderparty-rp2040-stamp-carrier-carrier
 [dependencies]
 cortex-m = "0.7.2"
 cortex-m-rt = { version = "0.7", optional = true }
-defmt = "0.3"
-defmt-rtt ="0.3"
 embedded-hal ="0.2.5"
 fugit = "0.3.6"
 nb = "1.0.0"
-panic-probe = "0.3"
 pio = "0.2.0"
 rp2040-boot2 = { version = "0.2.0", optional = true }
 rp2040-hal = { version = "0.6.0" }
@@ -31,4 +28,7 @@ boot2 = ["rp2040-boot2"]
 rt = ["cortex-m-rt","rp2040-hal/rt"]
 
 [dev-dependencies]
+defmt = "0.3"
+defmt-rtt ="0.3"
 panic-halt= "0.2.0"
+panic-probe = "0.3"
