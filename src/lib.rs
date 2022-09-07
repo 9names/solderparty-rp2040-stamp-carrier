@@ -58,8 +58,7 @@ pub mod prelude {
     pub use embedded_hal::adc::OneShot;
     pub use embedded_hal::digital::v2::ToggleableOutputPin;
     pub use embedded_hal::timer::CountDown;
-    pub use embedded_time::duration::Extensions;
-    pub use embedded_time::fixed_point::FixedPoint;
+    pub use fugit::ExtU32;
     pub use rp2040_hal::{
         clocks::{init_clocks_and_plls, Clock},
         pac,
