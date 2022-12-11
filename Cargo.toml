@@ -6,7 +6,7 @@ edition = "2021"
 homepage = "https://github.com/9names/solderparty-rp2040-stamp-carrier"
 description = "Board Support Package for the Solder Party RP2040 Stamp"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/9names/solderparty-rp2040-stamp-carrier-carrier.git"
+repository = "https://github.com/9names/solderparty-rp2040-stamp-carrier.git"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
