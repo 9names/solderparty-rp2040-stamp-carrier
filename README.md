@@ -17,7 +17,7 @@ RP2040 chip according to how it is connected up on the Stamp and Stamp Carrier
 To use this crate, your `Cargo.toml` file should contain:
 
 ```toml
-solderparty-rp2040-stamp-carrier = "0.4"
+solderparty-rp2040-stamp-carrier = "0.5"
 ```
 
 In your program, bring all of the BSPs symbols into your namespace using  
